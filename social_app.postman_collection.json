@@ -1,0 +1,357 @@
+{
+  "info": {
+    "_postman_id": "0535c679-0b09-49f1-abab-16dce7b982af",
+    "name": "social_app",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "56788353",
+    "_collection_link": "https://go.postman.co/collection/56788353-0535c679-0b09-49f1-abab-16dce7b982af?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "auth",
+      "item": [
+        {
+          "name": "sign_up",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"fName\": \"Razan\",\r\n  \"lName\": \"Khaled\",\r\n  \"email\": \"razanhamza2775@gmail.com\",\r\n  \"password\": \"Razan1234\",\r\n  \"cPassword\": \"Razan1234\",\r\n  \"gender\": \"female\",\r\n  \"phone\": \"01012345678\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{local_url}}auth/signup",
+              "host": [
+                "{{local_url}}auth"
+              ],
+              "path": [
+                "signup"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "verify_email",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"email\": \"razanhamza2775@gmail.com\",\r\n  \"otp\": \"423880\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{local_url}}auth/verify-email",
+              "host": [
+                "{{local_url}}auth"
+              ],
+              "path": [
+                "verify-email"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "login",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"email\": \"razan.test2026@gmail.com\",\r\n  \"password\": \"Razan1234\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{local_url}}auth/login",
+              "host": [
+                "{{local_url}}auth"
+              ],
+              "path": [
+                "login"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "refresh-token",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"refreshToken\": \"{{json_web_token_07hl}}\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{local_url}}auth/refresh-token",
+              "host": [
+                "{{local_url}}auth"
+              ],
+              "path": [
+                "refresh-token"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "logout",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": ""
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "forgot_password",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"email\": \"razanhamza2775@gmail.com\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{local_url}}auth/forgot-password",
+              "host": [
+                "{{local_url}}auth"
+              ],
+              "path": [
+                "forgot-password"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "reset_password",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"email\": \"razanhamza2775@gmail.com\",\r\n  \"otp\": \"975551\",\r\n  \"password\": \"NewPass123\",\r\n  \"cPassword\": \"NewPass123\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{local_url}}auth/reset-password",
+              "host": [
+                "{{local_url}}auth"
+              ],
+              "path": [
+                "reset-password"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "signup_with_google",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{local_url}}auth/google",
+              "host": [
+                "{{local_url}}auth"
+              ],
+              "path": [
+                "google"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "user",
+      "item": [
+        {
+          "name": "update_profile",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{json_web_token_0e3o}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "PATCH",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"fName\": \"Razonnna\",\r\n  \"phone\": \"01002924222\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{local_url}}user/update-profile",
+              "host": [
+                "{{local_url}}user"
+              ],
+              "path": [
+                "update-profile"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "get_profile",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{json_web_token_0bfo}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{local_url}}user/profile",
+              "host": [
+                "{{local_url}}user"
+              ],
+              "path": [
+                "profile"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "follow",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{json_web_token_0bfo}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "{{local_url}}user/6af7053684cb6723c3df413e/follow",
+              "host": [
+                "{{local_url}}user"
+              ],
+              "path": [
+                "6af7053684cb6723c3df413e",
+                "follow"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "unfollow",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{json_web_token_00y0}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{local_url}}user/6af7053684cb6723c3df413e/unfollow",
+              "host": [
+                "{{local_url}}user"
+              ],
+              "path": [
+                "6af7053684cb6723c3df413e",
+                "unfollow"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "search",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": ""
+            }
+          },
+          "response": []
+        }
+      ]
+    }
+  ],
+  "variable": [
+    {
+      "key": "json_web_token_0e3o",
+      "secret": true
+    },
+    {
+      "key": "json_web_token_0tnj",
+      "secret": true
+    },
+    {
+      "key": "json_web_token_07hl",
+      "secret": true
+    },
+    {
+      "key": "json_web_token_0bfo",
+      "secret": true
+    },
+    {
+      "key": "json_web_token_00y0",
+      "secret": true
+    }
+  ]
+}
